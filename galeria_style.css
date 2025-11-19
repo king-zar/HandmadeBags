@@ -104,12 +104,10 @@ footer {
   .gallery-grid {
     grid-template-columns: 1fr;
   }
-
   .overlay img {
     max-width: 90%;
     max-height: 90%;
   }
-
   video {
     max-width: 100%;
     height: auto;
