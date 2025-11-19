@@ -30,7 +30,7 @@ const charCount = document.getElementById("charCount");
 if (messageField && charCount) {
   messageField.addEventListener("input", function () {
     const length = messageField.value.length;
-    charCount.textContent = "${length} / 50 znaków";
+    charCount.textContent = `${length} / 50 znaków`;
   });
 }
 
