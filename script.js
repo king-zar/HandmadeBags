@@ -35,8 +35,6 @@ if (messageField && charCount) {
 }
 
 // powiekszanie zdjecia
-const galleryImages = document.querySelectorAll(".gallery-grid img");
-
 galleryImages.forEach((img) => {
   img.addEventListener("click", function () {
     const overlay = document.createElement("div");
@@ -45,14 +43,21 @@ galleryImages.forEach((img) => {
     // powiekszony obraz
     const largeImg = document.createElement("img");
     largeImg.src = this.src;
-
     overlay.appendChild(largeImg);
 
-    // klikniecie w overlay zamyka powiekszenie
-    overlay.addEventListener("click", function () {
-      overlay.remove();
-    });
-
+    // dodanie overlay do body
     document.body.appendChild(overlay);
+
+    // zablokowanie scrollowania strony
+    document.body.classList.add("no-scroll");
+
+    // klikniecie w overlay zamyka powiekszenie
+    const closeOverlay = () => {
+      overlay.remove();
+      document.body.classList.remove("no-scroll"); // odblokowanie scrolla
+    };
+
+    overlay.addEventListener("click", closeOverlay);
+    overlay.addEventListener("touchstart", closeOverlay);
   });
 });
