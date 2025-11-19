@@ -54,13 +54,5 @@ galleryImages.forEach((img) => {
     });
 
     document.body.appendChild(overlay);
-
-    overlay.addEventListener("click", function () {
-      overlay.remove();
-    });
-
-    overlay.addEventListener("touchstart", function () {
-      overlay.remove();
-    });
   });
 });
