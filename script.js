@@ -35,6 +35,8 @@ if (messageField && charCount) {
 }
 
 // powiekszanie zdjecia
+const galleryImages = document.querySelectorAll(".gallery-grid img");
+
 galleryImages.forEach((img) => {
   img.addEventListener("click", function () {
     const overlay = document.createElement("div");
@@ -61,3 +63,21 @@ galleryImages.forEach((img) => {
     overlay.addEventListener("touchstart", closeOverlay);
   });
 });
+
+const toggleBtn = document.querySelector(".toggleGallery");
+const galleryGrid = document.querySelector(".gallery-grid");
+
+console.log(toggleBtn, galleryGrid); // sprawdź w konsoli
+
+if (toggleBtn && galleryGrid) {
+  toggleBtn.addEventListener("click", () => {
+    galleryGrid.classList.toggle("hidden"); // dodaje lub usuwa klasę hidden
+
+    // zmiana tekstu przycisku
+    if (galleryGrid.classList.contains("hidden")) {
+      toggleBtn.textContent = "Pokaż galerię";
+    } else {
+      toggleBtn.textContent = "Ukryj galerię";
+    }
+  });
+}
